@@ -19,7 +19,7 @@ const vpcId = "vpc-7495181f" // existing VPC ID
 const subnetId = "subnet-b26b88cf" // existing subnet ID for the VPC
 
 // to get the latest version of the minecraft server jar file go here https://www.minecraft.net/en-us/download/server and click the download link
-const minecraftServerUrl = "https://piston-data.mojang.com/v1/objects/4707d00eb834b446575d89a61a11b5d548d8c001/server.jar" //version 2.21.4
+const minecraftServerUrl = "https://maven.minecraftforge.net/net/minecraftforge/forge/1.12.2-14.23.5.2860/forge-1.12.2-14.23.5.2860-installer.jar" //forge version 1.12.2
 
 //CIDR block for all https traffic
 const cidrIpv4IngressMinecraft = "0.0.0.0/0"
@@ -98,7 +98,7 @@ class MinecraftStack extends TerraformStack {
       
     })
     
-    const minecraftInstance = new Instance(this, "minecraft_server_1-21-4", {
+    const minecraftInstance = new Instance(this, "minecraft_server_1-12-2", {
       ami: amiId,
       instanceType: "t3.2xlarge",
       availabilityZone: availabilityZone,
@@ -107,8 +107,12 @@ class MinecraftStack extends TerraformStack {
       subnetId: subnetId,//main.publicSubnetIds[0]
       userData: instanceScript,
       tags: {
-        Name: "minecraft_server_1-21-4",
+        Name: "minecraft_server_1-12-2",
       },
+      provisioners: [
+
+      ]
+      
     });    
 
     new VolumeAttachment(this, "minecraftServerVolumeAttachment", {
