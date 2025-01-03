@@ -15,8 +15,8 @@ import { VolumeAttachment } from "@cdktf/provider-aws/lib/volume-attachment";
 
 /***VARS ***/
 const minecraftServerSSHKey = "minecraftServerSSHKey" // SSM Parameter Store parameter name id_rsa.pub for SSH Key logins
-const vpcId = "vpc-7495181f" // existing VPC ID
-const subnetId = "subnet-b26b88cf" // existing subnet ID for the VPC
+const vpcId = "vpc-xxxxxxx" // existing VPC ID
+const subnetId = "subnet-xxxxxx" // existing subnet ID for the VPC
 
 // to get the latest version of the minecraft server jar file go here https://www.minecraft.net/en-us/download/server and click the download link
 const minecraftServerUrl = "https://maven.minecraftforge.net/net/minecraftforge/forge/1.12.2-14.23.5.2860/forge-1.12.2-14.23.5.2860-installer.jar" //forge version 1.12.2
@@ -27,7 +27,7 @@ const cidrIpv4IngressMinecraft = "0.0.0.0/0"
 //CIDR block for all ssh traffic
 const cidrIpv4Ingress22 = "73.161.0.0/16"
 
-const amiId = "ami-0b4624933067d393a" // Amazon Linux 2 AMI ID
+const amiId = "ami-xxxxxxx" // Amazon Linux 2 AMI ID
 
 const region = "us-east-2"
 const availabilityZone = region+"b"
